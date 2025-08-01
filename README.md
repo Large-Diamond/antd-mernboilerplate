@@ -6,11 +6,6 @@ In this repository I will keep adding the production best practices we should fo
 
 Below are the sample of a sample list page:
 
-![Product List Page](./docs/images/product-list.png)
-
-![Product List Page](./docs/images/product-list-search.png)
-
-## Technology stack
 
 As the name suggests, this repository is built on top of Express.js and React.js, however in the implementation detail, we will find other supporting technologies as well.
 
@@ -75,39 +70,6 @@ It is expected that the machine must have docker and docker-compose installed. G
 
 The client and server both are up and running and we should see the following screen if we navigate to the client url.
 
-![Login screen](./docs/images/login-screen.png)
-
-
-- seed data
- Go inside of the docker container and execute below commands. These will seed the database with `roles`, `users` and `products` data.
-
-  ```sh
-  docker exec -it appserver bash
-  npm run db:seed
-  npm run db:migrate
-  ```
-
-  You should see the following output:
-  ![Product List Page](./docs/images/appserver-lsla.png)
-
-  ![Product List Page](./docs/images/appserver-db-seed-users.png)
-  
-  ![Product List Page](./docs/images/appserver-db-seed-products.png)
-
-  You should be now login to the application and see the products list.
-
-### Visual Studio Code
-
-#### Prerequisites
-
-- Node.js : To run npm packages
-- MongoDB : As a database for the application
-
-##### Steps
-
-- To run via vscode, we should run the server and client side projects separately, and also make sure mongodb is up and running.
-- Create a `.env` file inside of the `server` directory. Add the below entries or change accordingly. You can follow the `.env.sample` file to see the format.
-
   ```
   DB_HOST=localhost
   DB_PORT=27017
@@ -152,15 +114,10 @@ You should be able to see the username and password in the `/server/setup/users.
 
 ## Permission management ui 
 
-I have introduced a permission management ui for the application. Sample image is given below.
-
-  ![Product List Page](./docs/images/permission-manage-ui.png)
-
+I 
 
 ### Centralized log to `Sentry.io`
 
-We can also send the logs to [sentry.io](https://sentry.io). To use this feature, we need to add the `dsn` entry into `client/src/env.config.js`.
-Setup snippet is like below in `index.js` file
 
 ```javascript
 Sentry.init({
@@ -172,11 +129,6 @@ Sentry.init({
 
 ## ~~Test `server` API~~ (NOT DONE YET)
 
-~~To view the api, open your browser and visit `http://localhost:5000/api-docs`
-Ideally we should add all of the API endpoints into the swagger, but for the demo purpose, we only added Products API endpoint.  
-To test the APIs, we can reuse the postman collection. Open `docs/rbac-mern-boilerplate.postman_collection.json` into [Postman](https://www.postman.com/) and you should see the endpoints with appropriate payloads.~~
-
-## Scripts
 
 | Project | Command           | Task                                                 |
 | ------- | ----------------- | ---------------------------------------------------- |
@@ -210,31 +162,7 @@ To run the tests, we can run `npm run test` command.
 
 ## License
 
-This project is [MIT licensed](https://github.com/facebook/react/blob/main/LICENSE).
-
-[//]: # "These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax"
-[node.js]: http://nodejs.org
-[express.js]: http://expressjs.com
-[docker]: https://www.docker.com
-[react]: https://reactjs.org/
-[mongodb]: https://www.mongodb.com/
-[ant design]: https://ant.design/
-[testing library]: https://testing-library.com/
-[styled components]: https://styled-components.com/
-[axios]: https://github.com/axios/axios
-[mongoose]: https://mongoosejs.com/
-[swagger]: https://swagger.io/
-[jest]: https://jestjs.io/
-[super test]: https://github.com/visionmedia/supertest
-
-
 ## Contribution 
 For now, I am not taking any community contritutions in terms of code.  But if you have any suggestions or you found any bugs, please feel free to open an issue or a pull request.
 
 On the other hand, if you want to know something, or want to start a discussion about this  project, please start a discussion in our GitHub's discussion board.
-
-## Tutorials about how to build or use this project
-
-I have been screen recording the coding steps of this project. You can find the videos in the [YouTube playlist](https://www.youtube.com/playlist?list=PLEYpvDF6qy8aUl1KnB1oaZbwLE2oPcZmz). These  videos are only in **Bangla**, but I am happy to take special dedicated+paid sessions in English for international intersted audience. Feel free to reach out to me at foyzulkarim@gmail.com for any kind of help.
-
-Thanks. Cheers.
